@@ -41,3 +41,17 @@ I also realized that writing a report is not only about displaying data but also
 ## 📂 Source Code
 
 The source code for this chapter is available in the `src` folder.
+
+## 📷 Sample Outputs
+
+### Employee Report
+
+![Employee Report](screenshots/employee-report-output.png)
+
+### Table Formatting
+
+![Table Formatting](screenshots/table-formatting-output.png)
+
+### Colored Output
+
+![Colored Output](screenshots/colored-table-output.png)
