@@ -4,7 +4,7 @@
 
 This chapter marks my first step into ABAP programming.
 
-After building a foundation in SAP concepts, I started writing ABAP programs and gradually learned how to display, organize, and format report output.
+After building a foundation in SAP concepts, I started writing my first ABAP reports and learned how to display, organize, and format output using standard ABAP statements.
 
 ---
 
@@ -16,31 +16,39 @@ During this chapter, I learned how to:
 - Understand the basic structure of an ABAP program
 - Display output using the `WRITE` statement
 - Organize report output using line breaks and column positions
-- Create table-like reports using `ULINE` and `SY-VLINE`
-- Format report output using colors
+- Build table-like reports using `ULINE` and `SY-VLINE`
+- Format report output using colors, `INTENSIFIED`, and `INVERSE`
+- Apply these concepts by creating my own ABAP color reference table
 
 ---
 
-## 💻 What I Built
+## 💻 Programs Created
 
-- My first ABAP program
-- A simple employee report
-- A formatted table output
-- A colored report
+| Program | Description |
+|---------|-------------|
+| `01_first_abap_program.abap` | My first ABAP program using the `WRITE` statement. |
+| `02_employee_report.abap` | Displays employee details in a simple report. |
+| `03_table_formatting.abap` | Demonstrates table formatting using `ULINE` and `SY-VLINE`. |
+| `04_colored_output.abap` | Demonstrates text colors and formatting options. |
+| `05_color_reference_table.abap` | A self-practice program that demonstrates all standard ABAP list colors using `COLOR`, `INTENSIFIED`, and `INVERSE`. |
 
 ---
 
 ## ⭐ Key Takeaway
 
-Writing my first ABAP program gave me confidence to move from learning SAP concepts to actually building with ABAP.
+This chapter helped me transition from learning SAP concepts to writing actual ABAP programs.
 
-I also realized that writing a report is not only about displaying data but also about presenting it in a clear and readable format.
+By the end of this chapter, I was comfortable creating simple reports, formatting output, and combining multiple ABAP statements to produce structured and readable reports.
+
+One of the highlights was building a complete color reference table on my own using the concepts I had learned, reinforcing my understanding of ABAP list formatting.
 
 ---
 
 ## 📂 Source Code
 
-The source code for this chapter is available in the `src` folder.
+All ABAP source files for this chapter are available in the **`src`** folder.
+
+---
 
 ## 📷 Sample Outputs
 
@@ -48,10 +56,20 @@ The source code for this chapter is available in the `src` folder.
 
 ![Employee Report](screenshots/employee-report-output.png)
 
+---
+
 ### Table Formatting
 
 ![Table Formatting](screenshots/table-formatting-output.png)
 
+---
+
 ### Colored Output
 
 ![Colored Output](screenshots/colored-table-output.png)
+
+---
+
+### Color Reference Table (Self Practice)
+
+![Color Reference Table](screenshots/color-reference-table-output.png)
