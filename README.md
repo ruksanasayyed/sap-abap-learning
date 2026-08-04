@@ -19,11 +19,12 @@ This repository documents my journey as I continue learning, practicing, and imp
 
 ## 📚 Learning Roadmap
 
-| Chapter | Status |
-|----------|--------|
-| ✅ Chapter 01 – SAP Foundations | Completed |
-| 🚧 Chapter 02 – My First ABAP Program | In Progress |
-| ⏳ Chapter 03 – Coming Soon | Planned |
+| Chapter                              | Status      |
+| ------------------------------------ | ----------- |
+| ✅ Chapter 01 – SAP Foundations       | Completed   |
+| ✅ Chapter 02 – My First ABAP Program | Completed   |
+| 🚧 Chapter 03 – ABAP Data Dictionary  | In progress   |
+| 🚧 Chapter 04 – Classical Reports    | Yet to start |
 
 ---
 
@@ -37,13 +38,34 @@ sap-abap-learning/
 │
 ├── 02 - My First ABAP Program
 │   └── README.md
+|   └── src
+|   └── screenshots
 │
-├── 03 - ...
+├── 03 - ABAP Data Dictionary
+|   └── README.md
+|   └── src
+|   └── screenshots
 │
 └── README.md
 ```
 
 ---
+
+## 📚 Current Learning Focus
+
+I'm currently learning the **ABAP Data Dictionary (DDIC)**, where I'm exploring how SAP defines and manages metadata for database objects.
+
+Topics currently being covered include:
+
+- Transparent Tables
+- Standard SAP Tables (MARA)
+- Custom Tables
+- Data Elements
+- Domains
+- Structures
+- Views
+- Table Maintenance Generator
+- Search Helps
 
 ## 🎯 Why I Created This Repository
 
@@ -60,6 +82,10 @@ I created this repository to:
 ## 🌱 Current Progress
 
 - ✅ SAP Foundations
-- 🚧 Learning ABAP Programming
+- ✅ ABAP Programming Basics
+- 🚧 ABAP Data Dictionary (DDIC)
 
-More chapters will be added as I continue learning.
+Next milestone:
+- Build custom database tables and dictionary objects in SAP.
+
+This repository will continue to grow as I explore more SAP ABAP concepts and build hands-on projects throughout my learning journey.
