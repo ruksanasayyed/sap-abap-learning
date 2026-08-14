@@ -7,23 +7,23 @@ REPORT zabap_internal_tables_syntax.
 
 " DEFINING INTERNAL TABLE AND STRUCTURE by taking reference from MARA SAP standard table.
 
-DATA: lt_MARA TYPE TABLE OF mara,
-      wa_MARA TYPE mara.
+DATA: lt_mara TYPE TABLE OF mara,
+      wa_mara TYPE mara.
 
 " Creating our own Standard table.
 
 TYPES: BEGIN OF rt_emp,
 
-         employee_id TYPE zrk_emp_id,
-         title       TYPE zrk_title,
-         first_name  TYPE zrk_first_name,
-         last_name   TYPE zrk_last_name,
+         employee_id   TYPE zrk_emp_id,
+         title         TYPE zrk_title,
+         first_name    TYPE zrk_first_name,
+         last_name     TYPE zrk_last_name,
          full_name(50) TYPE c,
-         doj         TYPE psg_datjo,
-         department  TYPE zrk_depart,
-         ctc         TYPE dmbtr,
-         tax         TYPE dmbtr,
-         inhand_ctc  TYPE p DECIMALS 2,
+         doj           TYPE psg_datjo,
+         department    TYPE zrk_depart,
+         ctc           TYPE dmbtr,
+         tax           TYPE dmbtr,
+         inhand_ctc    TYPE p DECIMALS 2,
 
        END OF rt_emp.
 
@@ -74,74 +74,80 @@ APPEND gs_employee TO gt_employee.
 " INSERT OPERATION
 "------------------------------------------------------------------------
 
-" Insert is a keyword for internal table operations,
+" INSERT is a keyword for internal table operations,
 " and it is used for inserting data at a specified column or last row.
 
-*CLEAR: gs_employee.
-*gs_employee-employee_id = 'ZRK103'.
-*gs_employee-title       = 'Ms. '.
-*gs_employee-first_name  = 'Vishnav'.
-*gs_employee-last_name   = 'Raj'.
-*gs_employee-doj         = '20261130'.
-*gs_employee-department  = 'Finance'.
-*gs_employee-ctc         = '750000.00'.
+CLEAR: gs_employee.
+gs_employee-employee_id = 'ZRK103'.
+gs_employee-title       = 'Ms. '.
+gs_employee-first_name  = 'Vishnav'.
+gs_employee-last_name   = 'Raj'.
+gs_employee-doj         = '20261130'.
+gs_employee-department  = 'Finance'.
+gs_employee-ctc         = '750000.00'.
 
-*Insert gs_employee INTO TABLE gt_employee. " Insertion at default last row.
-
-
-*CLEAR: gs_employee.
-*gs_employee-employee_id = 'ZRK104'.
-*gs_employee-title       = 'Mr. '.
-*gs_employee-first_name  = 'Nikhil'.
-*gs_employee-last_name   = 'Rudra'.
-*gs_employee-doj         = '20261215'.
-*gs_employee-department  = 'Business'.
-*gs_employee-ctc         = '390000.00'.
-
-*Insert gs_employee INTO gt_employee INDEX 2. " Insertion at specified row using INDEX.
+INSERT gs_employee INTO TABLE gt_employee.
+" Insertion at default last row.
 
 
-*CLEAR: gs_employee.
-*gs_employee-employee_id = 'ZRK105'.
-*gs_employee-title       = 'Miss. '.
-*gs_employee-first_name  = 'Neethara'.
-*gs_employee-last_name   = 'Neeth'.
-*gs_employee-doj         = '20240915'.
-*gs_employee-department  = 'HR'.
-*gs_employee-ctc         = '120000.00'.
+CLEAR: gs_employee.
+gs_employee-employee_id = 'ZRK104'.
+gs_employee-title       = 'Mr. '.
+gs_employee-first_name  = 'Nikhil'.
+gs_employee-last_name   = 'Rudra'.
+gs_employee-doj         = '20261215'.
+gs_employee-department  = 'Business'.
+gs_employee-ctc         = '390000.00'.
 
-*Insert gs_employee INTO gt_employee INDEX 1. " Insertion at specified row using INDEX.
+INSERT gs_employee INTO gt_employee INDEX 2.
+" Insertion at specified row using INDEX.
 
 
-*CLEAR: gs_employee. " It is always a good practice to clear table.
+CLEAR: gs_employee.
+gs_employee-employee_id = 'ZRK105'.
+gs_employee-title       = 'Miss. '.
+gs_employee-first_name  = 'Neethara'.
+gs_employee-last_name   = 'Neeth'.
+gs_employee-doj         = '20240915'.
+gs_employee-department  = 'HR'.
+gs_employee-ctc         = '120000.00'.
+
+INSERT gs_employee INTO gt_employee INDEX 1.
+" Insertion at specified row using INDEX.
+
+
+CLEAR: gs_employee.
+" It is always a good practice to clear table.
 
 
 "------------------------------------------------------------------------
 " Inserting more records for sorting practice.
 "------------------------------------------------------------------------
 
-*CLEAR: gs_employee.
-*gs_employee-employee_id = 'ZRK106'.
-*gs_employee-title       = 'Mr. '.
-*gs_employee-first_name  = 'Vero'.
-*gs_employee-last_name   = 'Sharma'.
-*gs_employee-doj         = '20261130'.
-*gs_employee-department  = 'HR'.
-*gs_employee-ctc         = '350000.00'.
+CLEAR: gs_employee.
+gs_employee-employee_id = 'ZRK106'.
+gs_employee-title       = 'Mr. '.
+gs_employee-first_name  = 'Vero'.
+gs_employee-last_name   = 'Sharma'.
+gs_employee-doj         = '20261130'.
+gs_employee-department  = 'HR'.
+gs_employee-ctc         = '350000.00'.
 
-*Insert gs_employee INTO TABLE gt_employee. " Insertion at default last row.
+INSERT gs_employee INTO TABLE gt_employee.
+" Insertion at default last row.
 
 
-*CLEAR: gs_employee.
-*gs_employee-employee_id = 'ZRK107'.
-*gs_employee-title       = 'Mr. '.
-*gs_employee-first_name  = 'Zakir'.
-*gs_employee-last_name   = 'Khunafat'.
-*gs_employee-doj         = '20261211'.
-*gs_employee-department  = 'SAP'.
-*gs_employee-ctc         = '380000.00'.
+CLEAR: gs_employee.
+gs_employee-employee_id = 'ZRK107'.
+gs_employee-title       = 'Mr. '.
+gs_employee-first_name  = 'Zakir'.
+gs_employee-last_name   = 'Khunafat'.
+gs_employee-doj         = '20261211'.
+gs_employee-department  = 'SAP'.
+gs_employee-ctc         = '380000.00'.
 
-*Insert gs_employee INTO TABLE gt_employee. " Insertion at default last row.
+INSERT gs_employee INTO TABLE gt_employee.
+" Insertion at default last row.
 
 
 WRITE: /5   'EMPLOYEE_ID' COLOR 3 INVERSE ON,
@@ -162,45 +168,47 @@ ULINE.
 " LOOP AND MODIFY OPERATIONS
 "------------------------------------------------------------------------
 
-*LOOP AT gt_employee INTO gs_employee.
-*  " Loop is used to iterate entry through each add.
-*  " (WHERE Department = 'IT-SAP' - to fetch specific field)
+LOOP AT gt_employee INTO gs_employee.
 
-*  CONCATENATE gs_employee-title
-*              gs_employee-first_name
-*              gs_employee-last_name
-*              INTO gs_employee-full_name
-*              SEPARATED BY SPACE.
-*  " Concatenating first name + last name + title using LOOP.
+  " Loop is used to iterate entry through each add.
+  " (WHERE Department = 'IT-SAP' - to fetch specific field)
 
-*  MODIFY gt_employee FROM gs_employee TRANSPORTING full_name.
-*  " After we have concatened fields. We have to write modify statement
-*  " to modify the internal table.
+  CONCATENATE gs_employee-title
+              gs_employee-first_name
+              gs_employee-last_name
+              INTO gs_employee-full_name
+              SEPARATED BY SPACE.
 
-*  gs_employee-inhand_ctc = gs_employee-ctc - gs_employee-tax.
-*  " Calculating inhand ctc.
+  " Concatenating first name + last name + title using LOOP.
 
-*  MODIFY gt_employee FROM gs_employee TRANSPORTING inhand_ctc.
-*  " ALWAYS IMP TO WRITE MODIFY: Save the changed work area back into the table
+  MODIFY gt_employee FROM gs_employee TRANSPORTING full_name.
+  " After we have concatenated fields. We have to write MODIFY statement
+  " to modify the internal table.
 
-*  WRITE: /5   gs_employee-employee_id,
-*          20  sy-vline,
-*          25  gs_employee-title,
-*          40  sy-vline,
-*          45  gs_employee-full_name,
-*          95  sy-vline,
-*          100 gs_employee-department,
-*          125 sy-vline,
-*          130 gs_employee-inhand_ctc LEFT-JUSTIFIED,
-*          150 sy-vline,
-*          155 gs_employee-doj LEFT-JUSTIFIED,
-*          175 sy-vline.
+  gs_employee-inhand_ctc = gs_employee-ctc - gs_employee-tax.
+  " Calculating inhand CTC.
 
-*  CLEAR: gs_employee.
+  MODIFY gt_employee FROM gs_employee TRANSPORTING inhand_ctc.
+  " ALWAYS IMP TO WRITE MODIFY: Save the changed work area back into the table.
 
-*ENDLOOP.
+  WRITE: /5   gs_employee-employee_id,
+          20  sy-vline,
+          25  gs_employee-title,
+          40  sy-vline,
+          45  gs_employee-full_name,
+          95  sy-vline,
+          100 gs_employee-department,
+          125 sy-vline,
+          130 gs_employee-inhand_ctc LEFT-JUSTIFIED,
+          150 sy-vline,
+          155 gs_employee-doj LEFT-JUSTIFIED,
+          175 sy-vline.
 
-*ULINE.
+  CLEAR: gs_employee.
+
+ENDLOOP.
+
+ULINE.
 
 
 "------------------------------------------------------------------------
@@ -208,33 +216,33 @@ ULINE.
 " To find the total number of rows existing.
 "------------------------------------------------------------------------
 
-*DATA: gt_lines TYPE i.
+DATA: gt_lines TYPE i.
 
-*DESCRIBE TABLE gt_employee LINES gt_lines.
+DESCRIBE TABLE gt_employee LINES gt_lines.
 
-*WRITE: / 'Total number of rows before deleteion -> ', gt_lines.
+WRITE: / 'Total number of rows before deletion -> ', gt_lines.
 
-*ULINE.
+ULINE.
 
 
 "------------------------------------------------------------------------
 " DELETE OPERATION
 " To delete a record using WHERE, INDEX, adjacent deletion.
+"
+" Kept commented intentionally because DELETE changes the internal table.
 "------------------------------------------------------------------------
 
 *DELETE gt_employee WHERE department = 'HR'.
-* " Option 1: Delete using WHERE clause.
+*" Option 1: Delete using WHERE clause.
 
 *DELETE gt_employee INDEX 1.
-* " Option 2: Delete using INDEX.
+*" Option 2: Delete using INDEX.
 
 
-*SORT gt_employee BY employee_id.
+"SORT gt_employee BY employee_id.
 
 *LOOP AT gt_employee INTO gs_employee.
-*  " Loop is used to iterate entry through each add.
-*  " (WHERE Department = 'IT-SAP' - to fetch specific field)
-
+*
 *  WRITE: /5   gs_employee-employee_id,
 *          20  sy-vline,
 *          25  gs_employee-title,
@@ -249,16 +257,16 @@ ULINE.
 *          125 sy-vline,
 *          130 gs_employee-inhand_ctc LEFT-JUSTIFIED,
 *          150 sy-vline.
-
+*
 *  CLEAR: gs_employee.
-
+*
 *ENDLOOP.
 
 *ULINE.
 
 
 *DELETE ADJACENT DUPLICATES FROM gt_employee COMPARING department.
-* " Option 3: Adjacent DELETE
+*" Option 3: Adjacent DELETE
 
 *DESCRIBE TABLE gt_employee LINES gt_lines.
 
@@ -270,7 +278,7 @@ ULINE.
 " To print after deleting table records.
 
 *LOOP AT gt_employee INTO gs_employee.
-
+*
 *  WRITE: /5   gs_employee-employee_id,
 *          20  sy-vline,
 *          25  gs_employee-title,
@@ -285,9 +293,9 @@ ULINE.
 *          125 sy-vline,
 *          130 gs_employee-inhand_ctc LEFT-JUSTIFIED,
 *          150 sy-vline.
-
+*
 *  CLEAR: gs_employee.
-
+*
 *ENDLOOP.
 
 *ULINE.
@@ -297,138 +305,127 @@ ULINE.
 " SORT OPERATION
 "------------------------------------------------------------------------
 
-*Sort gt_employee BY department.
-* " It order department in ascending order.
+SORT gt_employee BY department.
+" It orders department in ascending order.
 
-*Sort gt_employee BY DOJ DESCENDING.
-* " It order department in descending order.
+SORT gt_employee BY doj DESCENDING.
+" It orders department in descending order.
 
 
 "------------------------------------------------------------------------
 " READ
 "------------------------------------------------------------------------
 
-*Read TABLE gt_employee INTO gs_employee
-*     WITH TABLE KEY employee_id = 'ZRK101'.
+CLEAR gs_employee.
 
+READ TABLE gt_employee INTO gs_employee
+     WITH TABLE KEY employee_id = 'ZRK101'.
 
-*ULINE.
+IF sy-subrc = 0.
 
+  WRITE: / 'Employee found using TABLE KEY:',
+         / gs_employee-employee_id,
+         / gs_employee-full_name.
 
-" To print after deleting table records.
+ELSE.
 
-*LOOP AT gt_employee INTO gs_employee.
+  WRITE: / 'No records found'.
 
-*  WRITE: /5   gs_employee-employee_id,
-*          20  sy-vline,
-*          25  gs_employee-title,
-*          40  sy-vline,
-*          45  gs_employee-first_name,
-*          65  sy-vline,
-*          70  gs_employee-last_name,
-*          95  sy-vline,
-*          100 gs_employee-department,
-*          125 sy-vline,
-*          130 gs_employee-doj LEFT-JUSTIFIED,
-*          150 sy-vline.
+ENDIF.
 
-*  CLEAR: gs_employee.
-
-*ENDLOOP.
-
-*ULINE.
+ULINE.
 
 
 "------------------------------------------------------------------------
 " READ OPERATIONS
 "------------------------------------------------------------------------
 
-*CLEAR gs_employee.
-* " We need structure to read data.
+CLEAR gs_employee.
+" We need structure to read data.
 
-*READ TABLE gt_employee INTO gs_employee
-*     WITH KEY department = 'HR'.
-* " Linear Search
+READ TABLE gt_employee INTO gs_employee
+     WITH KEY department = 'HR'.
+" Linear Search
 
-*IF sy-subrc = 0.
+IF sy-subrc = 0.
 
-*  WRITE: /5   gs_employee-employee_id,
-*          20  sy-vline,
-*          25  gs_employee-title,
-*          40  sy-vline,
-*          45  gs_employee-first_name,
-*          65  sy-vline,
-*          70  gs_employee-last_name,
-*          95  sy-vline,
-*          100 gs_employee-department,
-*          125 sy-vline,
-*          130 gs_employee-ctc LEFT-JUSTIFIED,
-*          150 sy-vline,
-*          155 gs_employee-doj LEFT-JUSTIFIED,
-*          175 sy-vline.
+  WRITE: /5   gs_employee-employee_id,
+          20  sy-vline,
+          25  gs_employee-title,
+          40  sy-vline,
+          45  gs_employee-first_name,
+          65  sy-vline,
+          70  gs_employee-last_name,
+          95  sy-vline,
+          100 gs_employee-department,
+          125 sy-vline,
+          130 gs_employee-ctc LEFT-JUSTIFIED,
+          150 sy-vline,
+          155 gs_employee-doj LEFT-JUSTIFIED,
+          175 sy-vline.
 
-*ELSE.
+ELSE.
 
-*  WRITE: / 'No records found'.
+  WRITE: / 'No records found'.
 
-*ENDIF.
-
-
-*SORT gt_employee BY department.
-
-*CLEAR: gs_employee.
-
-*READ TABLE gt_employee INTO gs_employee
-*     WITH KEY department = 'HR'
-*     BINARY SEARCH.
-* " Binary search
-
-*IF sy-subrc = 0.
-
-*  WRITE: /5   gs_employee-employee_id,
-*          20  sy-vline,
-*          25  gs_employee-title,
-*          40  sy-vline,
-*          45  gs_employee-first_name,
-*          65  sy-vline,
-*          70  gs_employee-last_name,
-*          95  sy-vline,
-*          100 gs_employee-department,
-*          125 sy-vline,
-*          130 gs_employee-ctc LEFT-JUSTIFIED,
-*          150 sy-vline,
-*          155 gs_employee-doj LEFT-JUSTIFIED,
-*          175 sy-vline.
-
-*ELSE.
-
-*  WRITE: / 'No records found'.
-
-*ENDIF.
+ENDIF.
 
 
-*READ TABLE gt_employee INTO gs_employee INDEX 2.
-* " Using Index
+SORT gt_employee BY department.
 
-*IF sy-subrc = 0.
+CLEAR: gs_employee.
 
-*  WRITE: /5   gs_employee-employee_id,
-*          20  sy-vline,
-*          25  gs_employee-title,
-*          40  sy-vline,
-*          45  gs_employee-first_name,
-*          65  sy-vline,
-*          70  gs_employee-last_name,
-*          95  sy-vline,
-*          100 gs_employee-department,
-*          125 sy-vline,
-*          130 gs_employee-ctc LEFT-JUSTIFIED,
-*          150 sy-vline,
-*          155 gs_employee-doj LEFT-JUSTIFIED,
-*          175 sy-vline.
+READ TABLE gt_employee INTO gs_employee
+     WITH KEY department = 'HR'
+     BINARY SEARCH.
+" Binary search
 
-*ELSE.
+IF sy-subrc = 0.
 
-*  WRITE: / 'No records found'.
+  WRITE: /5   gs_employee-employee_id,
+          20  sy-vline,
+          25  gs_employee-title,
+          40  sy-vline,
+          45  gs_employee-first_name,
+          65  sy-vline,
+          70  gs_employee-last_name,
+          95  sy-vline,
+          100 gs_employee-department,
+          125 sy-vline,
+          130 gs_employee-ctc LEFT-JUSTIFIED,
+          150 sy-vline,
+          155 gs_employee-doj LEFT-JUSTIFIED,
+          175 sy-vline.
 
-*ENDIF.
+ELSE.
+
+  WRITE: / 'No records found'.
+
+ENDIF.
+
+
+READ TABLE gt_employee INTO gs_employee INDEX 2.
+" Using Index
+
+IF sy-subrc = 0.
+
+  WRITE: /5   gs_employee-employee_id,
+          20  sy-vline,
+          25  gs_employee-title,
+          40  sy-vline,
+          45  gs_employee-first_name,
+          65  sy-vline,
+          70  gs_employee-last_name,
+          95  sy-vline,
+          100 gs_employee-department,
+          125 sy-vline,
+          130 gs_employee-ctc LEFT-JUSTIFIED,
+          150 sy-vline,
+          155 gs_employee-doj LEFT-JUSTIFIED,
+          175 sy-vline.
+
+ELSE.
+
+  WRITE: / 'No records found'.
+
+ENDIF.
