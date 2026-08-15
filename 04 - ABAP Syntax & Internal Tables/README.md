@@ -15,16 +15,16 @@ I started with basic ABAP syntax and gradually moved into working with internal 
 - Variables
 - Naming conventions
 - Elementary Data Types
-- Type C
-- Type N
-- Type I
-- Type P
+- Type C – Character
+- Type N – Numeric Text
+- Type I – Integer
+- Type P – Packed Number
 - Constants
-- System Fields
+- System Fields (`SY-*`)
 
 ### Internal Tables
 
-- Internal Table vs Database Table
+- Internal Tables vs Database Tables
 - Standard Internal Tables
 - Work Areas
 - Custom Structures using `TYPES`
@@ -49,15 +49,25 @@ I started with basic ABAP syntax and gradually moved into working with internal 
 
 I created ABAP programs in SE38 to practice the concepts learned in this chapter.
 
-The internal table practice includes creating a custom employee structure, populating an internal table, modifying records, sorting data, deleting records, and reading records using different approaches.
+The internal table practice includes creating custom employee structures, populating internal tables, modifying records, sorting data, deleting records, and reading records using different approaches.
+
+I also practiced the `COLLECT` statement to perform department-wise salary aggregation.
 
 ---
 
-## 💻 Practice Program
+## 💻 Practice Programs
 
-The main practice program for this chapter is:
+### Main Internal Table Practice
 
 `ZABAP_INTERNAL_TABLES_SYNTAX`
+
+Covers internal table declaration, structures, records, and internal table operations.
+
+### COLLECT Practice
+
+`ZABAP_COLLECT_SYNTAX`
+
+Demonstrates the `COLLECT` statement using employee department and salary data.
 
 The source code is available in the `src` folder.
 
@@ -72,11 +82,12 @@ The source code is available in the `src` folder.
 - ✅ Internal Tables
 - ✅ Standard Internal Tables
 - ✅ Work Areas
+- ✅ Custom Structures
 - ✅ Internal Table Operations
-- 🚧 Further ABAP Syntax
+- ✅ `COLLECT`
 
 ---
 
 ## 🚀 What's Next
 
-Continue strengthening ABAP syntax and internal table concepts through practical programs before moving deeper into ABAP reporting and application development.
+Continue with ABAP syntax and practical programming, while gradually moving toward ABAP reporting concepts such as ALV reports.
