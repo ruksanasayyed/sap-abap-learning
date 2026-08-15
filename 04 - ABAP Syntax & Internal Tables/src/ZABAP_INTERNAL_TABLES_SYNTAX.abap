@@ -319,7 +319,7 @@ SORT gt_employee BY doj DESCENDING.
 CLEAR gs_employee.
 
 READ TABLE gt_employee INTO gs_employee
-     WITH TABLE KEY employee_id = 'ZRK101'.
+     WITH KEY employee_id = 'ZRK101'.
 
 IF sy-subrc = 0.
 
