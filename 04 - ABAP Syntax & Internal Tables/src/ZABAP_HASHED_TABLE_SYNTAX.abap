@@ -22,12 +22,6 @@ TYPES: BEGIN OF rt_emp,
 
        END OF rt_emp.
 
-TYPES: BEGIN OF tp_emp,
-         department TYPE String,
-         ctc        TYPE dmbtr,
-         code       TYPE bukrs,
-       END OF tp_emp.
-
 " Defining Internal table and Structure from (rt_emp) our own standard table.
 
 DATA: gt_employee TYPE HASHED TABLE OF rt_emp WITH UNIQUE KEY employee_id company_code,
