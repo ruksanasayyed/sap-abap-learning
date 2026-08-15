@@ -26,6 +26,8 @@ I started with basic ABAP syntax and gradually moved into working with internal 
 
 - Internal Tables vs Database Tables
 - Standard Internal Tables
+- Sorted Internal Tables
+- Hashed Internal Tables
 - Work Areas
 - Custom Structures using `TYPES`
 - `APPEND`
@@ -81,10 +83,11 @@ The source code is available in the `src` folder.
 - ✅ System Fields
 - ✅ Internal Tables
 - ✅ Standard Internal Tables
+- ✅ Sorted Internal Tables
+- ✅ Hashed Internal Tables
 - ✅ Work Areas
-- ✅ Custom Structures
 - ✅ Internal Table Operations
-- ✅ `COLLECT`
+- 🚧 Further ABAP Syntax
 
 ---
 
