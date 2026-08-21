@@ -47,33 +47,67 @@ I started with basic ABAP syntax and gradually moved into working with internal 
 
 ---
 
+### Conditional & Looping Statements
+
+- `IF`
+- `IF ... ELSE`
+- `IF ... ELSEIF ... ELSE`
+- Multiple Conditions using `AND` and `OR`
+- Nested Conditions
+- `CASE`
+- `DO ... ENDDO`
+- `WHILE ... ENDWHILE`
+- `EXIT`
+- `CONTINUE`
+- `SY-TABIX`
+- `SY-DATUM`
+- Selection-screen Parameters
+- Subroutines using `FORM` and `PERFORM`
+
+
 ## 🛠️ Practical Work
 
 I created ABAP programs in SE38 to practice the concepts learned in this chapter.
 
-The internal table practice includes creating custom employee structures, populating internal tables, modifying records, sorting data, deleting records, and reading records using different approaches.
+The practical work includes internal table operations, sorted and hashed tables, `COLLECT`, conditional statements, and looping statements.
 
-I also practiced the `COLLECT` statement to perform department-wise salary aggregation.
+I also practiced selection-screen parameters, subroutines, `EXIT`, `CONTINUE`, and system fields such as `SY-DATUM` and `SY-TABIX`.
 
 ---
 
 ## 💻 Practice Programs
 
-### Main Internal Table Practice
+### Internal Table Practice
 
 `ZABAP_INTERNAL_TABLES_SYNTAX`
 
-Covers internal table declaration, structures, records, and internal table operations.
+Covers internal table declaration, structures, records, and basic internal table operations.
 
 ### COLLECT Practice
 
 `ZABAP_COLLECT_SYNTAX`
 
-Demonstrates the `COLLECT` statement using employee department and salary data.
+Demonstrates the `COLLECT` statement using employee department, salary, and company code data.
 
-The source code is available in the `src` folder.
+### Sorted Table Practice
 
----
+`ZABAP_SORTED_TABLE_SYNTAX`
+
+Demonstrates sorted internal tables, table keys, insertion, looping, and reading records.
+
+### Hashed Table Practice
+
+`ZABAP_HASHED_TABLE_SYNTAX`
+
+Demonstrates hashed internal tables, unique keys, insertion, looping, and key-based reading.
+
+### Conditional Statements Practice
+
+`ZABAP_CONDITIONAL_STATEMENTS`
+
+Demonstrates `IF`, `IF...ELSE`, `ELSEIF`, nested conditions, `CASE`, `DO...ENDDO`, `WHILE`, `EXIT`, and `CONTINUE`.
+
+All practice programs are available in the `src` folder.
 
 ## 🎯 Current Progress
 
@@ -87,6 +121,8 @@ The source code is available in the `src` folder.
 - ✅ Hashed Internal Tables
 - ✅ Work Areas
 - ✅ Internal Table Operations
+- ✅ Conditional Statements
+- ✅ Looping Statements
 - 🚧 Further ABAP Syntax
 
 ---
