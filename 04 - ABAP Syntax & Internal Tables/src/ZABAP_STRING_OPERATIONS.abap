@@ -10,6 +10,22 @@ Data: NUM1 TYPE CHAR50 VALUE '4175',
       NUM2 TYPE CHAR50 VALUE '9348',
       NUM3 TYPE CHAR50 VALUE '0107',
       CCN TYPE STRING.
+"Practicing Split for table.
+      gt_list TYPE TABLE of String, "gt is a internal table
+      gs_list like LINE OF gt_list, "gs is structure for internal table.
+      gv_list TYPE String VALUE '001,Mrs.,Ruksana,Sayyed,SAP,09102003', "gv is for variable, means table fields
+      gv_del TYPE Char1 Value ','. "del is delimeter to seperate variables
+
+Split gv_list AT gv_del INTO TABLE gt_list.
+
+Loop at gt_list into gs_list.
+
+  WRITE: / gs_list.
+
+  clear gs_list.
+  Endloop.
+
+  BREAK-POINT.
 
 "CONCATENATION OPERATION IS USED TO COMBINE 2 0R MORE STRING VALUE, NO NUMERIC VALUES ALLOWED.
 CONCATENATE NUM1 NUM2 NUM3 INTO CCN SEPARATED BY '-'.
