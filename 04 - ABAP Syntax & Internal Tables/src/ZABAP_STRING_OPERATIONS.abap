@@ -16,25 +16,38 @@ Data: NUM1 TYPE CHAR50 VALUE '4175',
       gv_list TYPE String VALUE '001,Mrs.,Ruksana,Sayyed,SAP,09102003', "gv is for variable, means table fields
       gv_del TYPE Char1 Value ',', "-------------------------------------del is delimeter to seperate variables
 "Practicing Sub string. To get only specific chars for a string.
-      gv_sub_string TYPE String Value 'SAP ABAP PROGRAMMING USING S/4 HANA',
+      gv_org_string TYPE String Value ' SAP                  ABAP  PROGRAMMING USING      S/4             HANA',
       gv_sub1 TYPE String,
       gv_sub2 TYPE String,
 "For knowing length.
       gv_len TYPE i.
 
-WRITE: / GV_SUB_STRING.
+"Condense String Operation: It remove all the consequetive spaces, removes excess spaces.
+WRITE: / 'Original String before Condense: ', 40 gv_org_string.
 
-gv_len = strlen( gv_sub_string ).
+CONDENSE gv_org_string.
 
-"gv_len = strlen(gv_sub_string). "gives error
+WRITE: / 'Original String after Condense:  ', 40 gv_org_string.
 
-WRITE: / 'String length= ', gv_len.
+"---------------------------------------------
+
+*WRITE: / GV_ORG_STRING.
 *
-*gv_sub1 = gv_sub_string+0(7).
+*gv_len = strlen( gv_org_string ).
+*
+*"gv_len = strlen(gv_org_string). "gives error
+
+"---------------------------------------------
+
+*WRITE: / 'String length= ', gv_len.
+*
+*gv_sub1 = gv_org_string+0(7).
 *
 *WRITE: / 'GV_SUB1: ', GV_SUB1.
 *
-*gv_sub2 = gv_sub_string+5(10).
+*gv_sub2 = gv_org_string+5(10).
+*
+*WRITE: / 'GV_SUB2: ', GV_SUB2.
 
 
 "----------------------------------------------
