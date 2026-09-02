@@ -64,6 +64,12 @@ I started with basic ABAP syntax and gradually moved into working with internal 
 - Selection-screen Parameters
 - Subroutines using `FORM` and `PERFORM`
 
+### String Operations
+
+- `CONCATENATE`
+- `SPLIT`
+- `CLEAR`
+
 
 ## 🛠️ Practical Work
 
@@ -109,6 +115,12 @@ Demonstrates `IF`, `IF...ELSE`, `ELSEIF`, nested conditions, `CASE`, `DO...ENDDO
 
 All practice programs are available in the `src` folder.
 
+### String Operations Practice
+
+`ZABAP_STRING_OPERATIONS`
+
+Demonstrates string operations such as `CONCATENATE`, `SPLIT`, and `CLEAR`.
+
 ## 🎯 Current Progress
 
 - ✅ ABAP Variables
@@ -123,6 +135,7 @@ All practice programs are available in the `src` folder.
 - ✅ Internal Table Operations
 - ✅ Conditional Statements
 - ✅ Looping Statements
+- ✅ String Operations
 - 🚧 Further ABAP Syntax
 
 ---
