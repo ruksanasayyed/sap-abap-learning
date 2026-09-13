@@ -25,25 +25,34 @@ SELECT-OPTIONS: s_matnr FOR gv_matnr,
                 s_werks FOR gv_werks.
 
 START-OF-SELECTION.
+"An inner join returns rows only where there is a matching entry in both tables based on the condition.
+*  SELECT a~matnr a~mtart
+*         b~werks
+*    FROM mara AS a Inner JOIN marc AS b
+*    ON a~matnr = b~matnr
+*    INTO TABLE gt_result
+*    WHERE a~matnr IN s_matnr.
 
+"In a left outer join, all rows from the left table are included in the result—even if there’s no match in the right table.
   SELECT a~matnr a~mtart
          b~werks
-    FROM mara AS a INNER JOIN marc AS b
+    FROM mara AS a LEFT OUTER JOIN marc AS b
     ON a~matnr = b~matnr
     INTO TABLE gt_result
     WHERE a~matnr IN s_matnr.
 
   WRITE: /5 'MATNR', 35 'MTART', 65 'WERKS'.
   ULINE.
-  cl_demo_output=>display( gt_result ).
-* "or
-*  LOOP AT gt_result INTO gs_result.
-*
-*    WRITE: /5 gs_result-matnr,
-*            35 gs_result-mtart,
-*            65 gs_result-werks.
-*
-*    CLEAR: gs_result.
-*  ENDLOOP.
+
+  cl_demo_output=>display( gt_result ). "AUTOMATIC TABLE DISPLAY OUTPUT.
+
+  LOOP AT gt_result INTO gs_result. "MANUAL REPORT FORMATTING.
+
+    WRITE: /5 gs_result-matnr,
+            35 gs_result-mtart,
+            65 gs_result-werks.
+
+    CLEAR: gs_result.
+  ENDLOOP.
 
 END-OF-SELECTION.
