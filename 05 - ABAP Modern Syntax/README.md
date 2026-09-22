@@ -43,18 +43,3 @@ The explanations and examples will be based on my own hands-on practice in SAP.
 The concepts learned in this chapter will be practiced through ABAP programs created in SAP.
 
 The source code for each exercise is available in the `src` folder.
-
----
-
-## 📂 Chapter Structure
-
-```text
-05 - ABAP Modern Syntax/
-│
-├── README.md
-│
-├── src/
-│   └── ABAP practice programs
-│
-└── screenshots/
-    └── Output and practice screenshots
