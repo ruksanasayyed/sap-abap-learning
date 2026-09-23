@@ -1,85 +1,23 @@
-# 💙 SAP ABAP Learning Journey
+# 🟣 SAP ABAP Learning Journey
 
-Welcome to my SAP ABAP learning repository.
+> Learning it is one thing. Understanding it is another.
 
-I'm documenting my journey from learning SAP fundamentals to building real-world ABAP applications. Instead of treating this repository as course notes, I'm using it as an engineering journal to capture what I learn, what I build, and how my understanding evolves over time.
+This repository is where I’m documenting my journey into SAP ABAP and SAP S/4HANA.
 
-My goal is not just to complete a course, but to build a strong foundation in SAP ABAP through consistent learning, hands-on development, and practical understanding of how enterprise applications are designed.
+I started this with a simple intention: **I want to understand what I’m building, not just learn enough to make it work.**
 
----
+For me, the interesting part of learning a new technology is what happens after the first explanation. Why does it work this way? What happens if I change something? Where does this concept actually fit? And how do all these small pieces eventually come together to form something bigger?
 
-## 🚀 Why I'm Learning SAP ABAP
+That is how I’m approaching ABAP.
 
-Before starting my SAP ABAP journey, I focused on strengthening my programming fundamentals with Java.
+I learn a concept, write it myself, experiment with it, sometimes get it wrong, figure out why, and then move forward with a better understanding. The code in this repository is a reflection of that process.
 
-That experience helped me build a strong foundation in core programming concepts and problem-solving.
+The individual chapter READMEs contain the detailed learning and implementations. This main README is about the bigger picture: **the knowledge I’m building and the direction I’m working toward.**
 
-I started learning SAP ABAP to understand how enterprise applications are built, how SAP manages business data, and how ABAP is used to develop and customize real-world business processes.
+My goal is to build strong expertise in SAP development and eventually work on enterprise solutions where I can apply that knowledge to real engineering problems.
 
-This repository documents my learning through practical development, experimentation, and continuous improvement.
+So, this repository isn't here just to show that I completed a course.
 
----
+It is here to show **how I’m building the foundation for the engineer I want to become.**
 
-## 🔑 SAP T-Code Reference
-
-| T-Code | Used for |
-| --- | --- |
-| **SE11** | Used to create and work with ABAP Dictionary objects such as tables, structures, data elements, and domains. |
-| **SE16** | Used to view and browse data stored in database tables. |
-| **SE38** | Used to create, edit, and execute ABAP programs. |
-| **SE80** | Used as the ABAP Workbench to work with different development objects. |
-| **SE93** | Used to create and maintain transaction codes. |
-
-### 🧠 Quick Reference
-
-`SE11` → Dictionary objects  
-`SE16` → Table data  
-`SE38` → ABAP programs  
-`SE80` → Development Workbench  
-`SE93` → Transaction codes
-
----
-
-## 🏗️ Hands-on Projects
-
-### Employee Master Database
-
-As part of learning the SAP Data Dictionary, I built a small employee database to practice data modeling and database relationships.
-
-The project includes objects for:
-
-- Employee master information
-- Employee communication details
-- Reusable administration fields
-- Additional employee-specific fields through append structures
-
-The project helped me understand how SAP models business entities using tables, structures, keys, and relationships instead of keeping all information in a single table.
-
----
-
-## 🧠 Learning Approach
-
-This repository follows a simple approach:
-
-**Learn → Apply → Make Mistakes → Ask Questions → Improve**
-
-I use the repository to document practical work, experiment with ABAP concepts, and build a stronger understanding of how SAP development works.
-
-Each chapter contains the relevant concepts, hands-on programs, screenshots, and technical notes from my learning.
-
----
-
-## 🎯 Repository Goal
-
-The goal of this repository is to build strong SAP ABAP skills through:
-
-- Consistent learning
-- Hands-on development
-- Practical experimentation
-- Technical documentation
-- Understanding enterprise application development
-- Building real-world ABAP skills over time
-
----
-
-🌱 **One chapter at a time. One concept at a time. Building toward real-world SAP development.**
+🌱 **Learn → Build → Understand → Improve → Repeat.**
