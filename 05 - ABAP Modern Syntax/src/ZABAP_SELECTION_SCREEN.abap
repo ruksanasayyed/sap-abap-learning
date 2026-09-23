@@ -40,3 +40,60 @@ START-OF-SELECTION.
                                                      cpudt = @p_cpudt.
 
 END-OF-SELECTION.
+
+"-----------------------------------Radio buttons
+
+SELECTION-SCREEN: BEGIN OF BLOCK b2 WITH FRAME TITLE TEXT-002.
+
+  SELECTION-SCREEN: BEGIN OF BLOCK b3 WITH FRAME TITLE TEXT-003.
+
+    PARAMETERS: p_open  RADIOBUTTON GROUP grp1,
+
+                p_clear RADIOBUTTON GROUP grp1,
+
+                p_all    RADIOBUTTON GROUP grp1 DEFAULT 'X'.
+
+  SELECTION-SCREEN: END OF BLOCK b3.
+
+SELECTION-SCREEN: END OF BLOCK b2.
+
+SELECTION-SCREEN SKIP.
+
+"---------------------------------------Check boxes
+
+SELECTION-SCREEN: BEGIN OF BLOCK b4 WITH FRAME TITLE TEXT-004.
+
+  PARAMETERS: c_c1 AS CHECKBOX default 'x',
+              c_c2 AS CHECKBOX,
+              c_c3 AS CHECKBOX.
+
+SELECTION-SCREEN: END OF BLOCK b4.
+
+START-OF-SELECTION.
+
+if c_c1 = 'X'.
+
+  MESSAGE 'Normal items- Checkbox has been selected' type 'i'.
+
+  elseif c_c2 is not INITIAL.
+
+  MESSAGE 'Special G/L Transactions- Checkbox has been selected' type 'I'.
+
+    elseif c_c3 is not INITIAL.
+
+  MESSAGE 'Noted Items- Checkbox has been selected' type 'i'.
+
+  endif.
+
+  BREAK-POINT.
+
+END-OF-SELECTION.
+
+"-------------------------------Drop down list
+TYPE-Pools: vrm.
+
+SELECTION-SCREEN: begin of block b5 WITH FRAME title text-005.
+
+  PARAMETERS: t_land1 type t005t-land1 As LISTBOX VISIBLE LENGTH 50.
+
+  SELECTION-SCREEN: END OF block b5.
