@@ -5,6 +5,7 @@
 *&---------------------------------------------------------------------*
 REPORT zuk_vendor_master_report.
 
+TABLES: lfa1.
 *&---------------------------------------------------------------------*
 *&
 *& Steps to follow for writing classical report program
@@ -52,7 +53,7 @@ TYPES: BEGIN OF tp_lfa1,
          persnumber TYPE ad_persnum, "Primary key
          date_from  TYPE ad_date_fr, "Primary key
          consnumber TYPE ad_consnum, "Primary key
-         tel_number TYPE  ad_tlnmbr, "Mobile Number - 12/13
+         tel_number TYPE ad_tlnmbr,  "Mobile Number - 12/13
        END OF tp_adr2,
 
        BEGIN OF tp_master,
@@ -62,13 +63,13 @@ TYPES: BEGIN OF tp_lfa1,
          bukrs       TYPE lfb1-bukrs,       "COMPANY CODE
          Address     TYPE adrc-street,      "ADDRESS
          City        TYPE adrc-city1,       "CITY - 6
-         Postal_Code TYPE  adrc-post_code1, "POSTAL CODE -7
+         Postal_Code TYPE adrc-post_code1,  "POSTAL CODE -7
          Country     TYPE adrc-country,     "country - 8
-         State       TYPE  adrc-region,     "state -9
+         State       TYPE adrc-region,      "state -9
          Email1      TYPE adr6-smtp_addr,   "Email Address
          Email2      TYPE adr6-smtp_addr,   "Email Address
-         Mobile1     TYPE  adr2-tel_number, "Mobile Number
-         Mobile2     TYPE  adr2-tel_number, "Mobile Number
+         Mobile1     TYPE adr2-tel_number,  "Mobile Number
+         Mobile2     TYPE adr2-tel_number,  "Mobile Number
        END OF tp_master.
 
 "Data Declaration.
@@ -88,7 +89,13 @@ DATA: gt_lfa1   TYPE STANDARD TABLE OF tp_lfa1,
       gs_master TYPE tp_master,
 
       gt_t005   TYPE STANDARD TABLE OF t005,
-      gs_too5   TYPE t005.
+      gs_too5   TYPE t005,
+
+      gt_t005t  TYPE STANDARD TABLE OF t005t,
+      gs_too5t  TYPE t005t,
+
+      gt_t005u  TYPE STANDARD TABLE OF t005u,
+      gs_too5u  TYPE t005u.
 
 DATA: sd_lifnr TYPE lfa1-lifnr, "Here we are declarating selection screen variables with a custom internal table."instead of calling direct tables like "tables: lfa1, adrc.", we cal use this second method
       sd_bukrs TYPE lfb1-bukrs.
@@ -98,25 +105,80 @@ DATA: sd_lifnr TYPE lfa1-lifnr, "Here we are declarating selection screen variab
 SELECTION-SCREEN: BEGIN OF BLOCK b1 WITH FRAME TITLE TEXT-001.
 
   SELECT-OPTIONS: s_lifnr FOR sd_lifnr,
-           s_bukrs FOR sd_bukrs.
+           s_bukrs FOR sd_bukrs NO INTERVALS NO-EXTENSION.
 
 SELECTION-SCREEN: END OF BLOCK b1.
 
 
 "Selecting data from the database.
-LOOP AT gt_master INTO gs_master.
+WRITE: /5 'Sr No', 15 'Field', 35 'Reference Table Field'.
+ULINE.
 
-  AT FIRST.
-    WRITE: /5 'Sr No', 15 'Field', 35 'Reference Table Field'.
-    ULINE.
-  ENDAT.
+START-OF-SELECTION.
+
+  PERFORM get_data.
+
+END-OF-SELECTION.
+
+*&---------------------------------------------------------------------*
+*& Form get_data
+*&---------------------------------------------------------------------*
+*& text
+*&---------------------------------------------------------------------*
+*& -->  p1        text
+*& <--  p2        text
+*&---------------------------------------------------------------------*
+FORM get_data .
 
   SELECT a~lifnr a~name1 a~adrnr
-         b~bukrs
-    FROM lfa1 AS a INNER JOIN lfb1 AS b
-    ON a~lifnr = b~lifnr
-    INTO CORRESPONDING FIELDS OF TABLE gt_lfa1
-    WHERE a~lifnr IN s_lifnr
-    AND b~bukrs IN s_bukrs.
+       b~bukrs
+  FROM lfa1 AS a INNER JOIN lfb1 AS b
+  ON a~lifnr = b~lifnr
+  INTO CORRESPONDING FIELDS OF TABLE gt_lfa1
+  WHERE a~lifnr IN s_lifnr
+  AND b~bukrs IN s_bukrs.
 
-ENDLOOP.
+  IF gt_lfa1[] IS NOT INITIAL. "If gt_lfa1 table is not empty, then run this conditions.
+
+    "FOR ADDRESS - adrc
+    SELECT addrnumber date_from nation city1 post_code1 street country region
+      FROM adrc
+      INTO CORRESPONDING FIELDS OF TABLE gt_adrc
+      FOR ALL ENTRIES IN gt_lfa1
+      WHERE addrnumber = gt_lfa1-adrnr.
+
+    "For email address - adr6
+    SELECT addrnumber persnumber date_from consnumber smtp_addr
+      FROM adr6
+      INTO CORRESPONDING FIELDS OF TABLE gt_adr6
+      FOR ALL ENTRIES IN gt_lfa1
+      WHERE addrnumber = gt_lfa1-adrnr.
+
+    "For Telephone Numbers - adr2
+    SELECT addrnumber persnumber date_from consnumber tel_number
+      FROM adr2
+      INTO CORRESPONDING FIELDS OF TABLE gt_adr2
+      FOR ALL ENTRIES IN gt_lfa1
+      WHERE addrnumber = gt_lfa1-adrnr.
+
+    IF gt_adrc[] IS NOT INITIAL.
+
+      SELECT *
+        FROM t005t
+        INTO CORRESPONDING FIELDS OF table gt_t005T
+        FOR ALL ENTRIES IN gt_adrc
+        WHERE spras = 'E'
+        AND land1 = gt_adrc-country.
+
+        SELECT *
+          FROM t005u
+          INTO CORRESPONDING FIELDS OF table gt_t005u
+          FOR ALL ENTRIES IN gt_adrc
+          WHERE spras = 'E'
+           AND land1 = gt_adrc-country
+           AND bland = gt_adrc-region.
+        ENDIF.
+
+      ENDIF.
+
+ENDFORM.
